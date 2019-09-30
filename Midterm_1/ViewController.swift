@@ -19,15 +19,31 @@ class ViewController: UIViewController, MGLMapViewDelegate {
         // Change mapbox style
         mapView.styleURL = MGLStyle.satelliteStreetsStyleURL
         
+        //Centering at the area around whitehall
+        mapView.setCenter(CLLocationCoordinate2D(latitude: 38.038039, longitude: -84.503953), zoomLevel: 16, animated: false)
+        
         // Add point annotation (map marker)
         let annotation = MGLPointAnnotation()
-        annotation.coordinate = CLLocationCoordinate2D(latitude: 40.77014, longitude: -73.97480)
-        annotation.title = "Central Park"
-        annotation.subtitle = "Biggest park in New York City!"
+        annotation.coordinate = CLLocationCoordinate2D(latitude: 38.038039, longitude: -84.503953)
+        annotation.title = "Whitehall Classroom Building"
+        annotation.subtitle = "Starting Position"
         mapView.addAnnotation(annotation)
         
         // Set mapView delegate
         mapView.delegate = self
+        
+        func mapView(_ mapView: MGLMapView, annotationCanShowCallout annotation: MGLAnnotation) -> Bool
+        {
+        // Always allow callouts to popup when annotations are tapped.
+        return true
+        }
+        
+        func mapView(_ mapView: MGLMapView, didSelect annotation: MGLAnnotation)
+        {
+            let camera = MGLMapCamera(lookingAtCenter: annotation.coordinate, acrossDistance: 4500, pitch: 15, heading: 180)
+            mapView.fly(to: camera, withDuration: 4,
+            peakAltitude: 3000, completionHandler: nil)
+        }
         
     }
 
