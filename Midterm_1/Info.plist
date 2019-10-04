@@ -62,5 +62,7 @@
 	</array>
 	<key>MGLMapboxAccessToken</key>
 	<string>pk.eyJ1IjoiaGFpbm9jZW5jaW8iLCJhIjoiY2sweTJlZ3k3MGFybzNicngxemowa3BqcSJ9.aQaeSxdV8_6oA-7Wv4ITXA</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Enable User Location for this App</string>
 </dict>
 </plist>

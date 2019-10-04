@@ -33,7 +33,7 @@ class ViewController: UIViewController, MGLMapViewDelegate {
         mapView.delegate = self
         
         // Allow the map view to show user's location
-        //mapView.showsUserLocation = true
+        mapView.showsUserLocation = true
         
     }
         
