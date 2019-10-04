@@ -15,19 +15,23 @@ class ViewController: UIViewController, MGLMapViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
+        let r1_start_coords = (38.038366, -84.503865)
+        let r1_end_coords = (38.039977, -84.503839)
         // Change mapbox style
         mapView.styleURL = MGLStyle.satelliteStreetsStyleURL
         
-        //Centering at the area around whitehall
-        //mapView.setCenter(CLLocationCoordinate2D(latitude: 38.038039, longitude: -84.503953), zoomLevel: 16, animated: false)
-        
         // Add point annotation (map marker)
-        let annotation = MGLPointAnnotation()
-        annotation.coordinate = CLLocationCoordinate2D(latitude: 38.038039, longitude: -84.503953)
-        annotation.title = "Whitehall Classroom Building"
-        annotation.subtitle = "Starting Position"
-        mapView.addAnnotation(annotation)
+        let r1_start = MGLPointAnnotation()
+        r1_start.coordinate = CLLocationCoordinate2D(latitude: r1_start_coords.0, longitude: r1_start_coords.1)
+        r1_start.title = "Whitehall Classroom Building"
+        r1_start.subtitle = "Starting Position"
+        mapView.addAnnotation(r1_start)
+        
+        let r1_end = MGLPointAnnotation()
+        r1_end.coordinate = CLLocationCoordinate2D(latitude: r1_end_coords.0, longitude: r1_end_coords.1)
+        r1_end.title = "Gatton Student Center"
+        r1_end.subtitle = "Ending Position"
+        mapView.addAnnotation(r1_end)
         
         // Set mapView delegate
         mapView.delegate = self
@@ -42,11 +46,9 @@ class ViewController: UIViewController, MGLMapViewDelegate {
         return true
     }
     
-    func mapView(_ mapView: MGLMapView, didSelect annotation: MGLAnnotation) {
-        let camera = MGLMapCamera(lookingAtCenter: annotation.coordinate, fromDistance: 4500, pitch: 15, heading: 180)
+    func mapView(_ mapView: MGLMapView, didSelect r1_start:MGLAnnotation) {
+        let camera = MGLMapCamera(lookingAtCenter: r1_start.coordinate, fromDistance: 4500, pitch: 15, heading: 180)
         mapView.fly(to: camera, withDuration: 4, peakAltitude: 3000, completionHandler: nil)
-        
     }
-        
 }
 
