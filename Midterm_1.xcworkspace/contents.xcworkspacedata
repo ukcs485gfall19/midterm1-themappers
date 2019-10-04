@@ -4,6 +4,39 @@
    <FileRef
       location = "group:Midterm_1.xcodeproj">
    </FileRef>
+   <Group
+      location = "group:Midterm_1"
+      name = "Midterm_1">
+      <FileRef
+         location = "group:Midterm_1/AppDelegate.swift">
+      </FileRef>
+      <FileRef
+         location = "group:Midterm_1/SceneDelegate.swift">
+      </FileRef>
+      <FileRef
+         location = "group:Midterm_1/ViewController.swift">
+      </FileRef>
+      <Group
+         location = "group:Midterm_1"
+         name = "Main.storyboard">
+         <FileRef
+            location = "group:Midterm_1/Base.lproj/Main.storyboard">
+         </FileRef>
+      </Group>
+      <FileRef
+         location = "group:Midterm_1/Assets.xcassets">
+      </FileRef>
+      <Group
+         location = "group:Midterm_1"
+         name = "LaunchScreen.storyboard">
+         <FileRef
+            location = "group:Midterm_1/Base.lproj/LaunchScreen.storyboard">
+         </FileRef>
+      </Group>
+      <FileRef
+         location = "group:Midterm_1/Info.plist">
+      </FileRef>
+   </Group>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
    </FileRef>

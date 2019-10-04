@@ -15,18 +15,24 @@ class ViewController: UIViewController, MGLMapViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        let map_center_coords = (38.030861, -84.504053)
+        
         let r1_start_coords = (38.038366, -84.503865)
         let r1_end_coords = (38.039977, -84.503839)
         // Change mapbox style
         mapView.styleURL = MGLStyle.satelliteStreetsStyleURL
         
-        // Add point annotation (map marker)
+        // Set map center and zoom
+        mapView.setCenter(CLLocationCoordinate2D(latitude: map_center_coords.0, longitude: map_center_coords.1), zoomLevel: 15, animated: false)
+        
+        // Add start point (map marker)
         let r1_start = MGLPointAnnotation()
         r1_start.coordinate = CLLocationCoordinate2D(latitude: r1_start_coords.0, longitude: r1_start_coords.1)
         r1_start.title = "Whitehall Classroom Building"
         r1_start.subtitle = "Starting Position"
         mapView.addAnnotation(r1_start)
         
+        // Add end point
         let r1_end = MGLPointAnnotation()
         r1_end.coordinate = CLLocationCoordinate2D(latitude: r1_end_coords.0, longitude: r1_end_coords.1)
         r1_end.title = "Gatton Student Center"
