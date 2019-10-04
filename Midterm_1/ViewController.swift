@@ -20,7 +20,7 @@ class ViewController: UIViewController, MGLMapViewDelegate {
         mapView.styleURL = MGLStyle.satelliteStreetsStyleURL
         
         //Centering at the area around whitehall
-        mapView.setCenter(CLLocationCoordinate2D(latitude: 38.038039, longitude: -84.503953), zoomLevel: 16, animated: false)
+        //mapView.setCenter(CLLocationCoordinate2D(latitude: 38.038039, longitude: -84.503953), zoomLevel: 16, animated: false)
         
         // Add point annotation (map marker)
         let annotation = MGLPointAnnotation()
@@ -40,6 +40,12 @@ class ViewController: UIViewController, MGLMapViewDelegate {
     func mapView(_ mapView: MGLMapView, annotationCanShowCallout annotation: MGLAnnotation) -> Bool {
         // Always allow callouts to popup when annotations are tapped.
         return true
+    }
+    
+    func mapView(_ mapView: MGLMapView, didSelect annotation: MGLAnnotation) {
+        let camera = MGLMapCamera(lookingAtCenter: annotation.coordinate, fromDistance: 4500, pitch: 15, heading: 180)
+        mapView.fly(to: camera, withDuration: 4, peakAltitude: 3000, completionHandler: nil)
+        
     }
         
 }
